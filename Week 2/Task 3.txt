@@ -1,0 +1,51 @@
+Week 2 Question 3. Write the pseudocode corresponding to functions for addition, subtraction and multiplication of two
+matrices, and then compute A = B*C-2*(B+C), where B and C are two matrices of order N. What is the
+run-time?
+
+
+CREATE-MATRIX(rows,columns)
+	matrix <- [rows,colums]
+	
+	a <- 1
+	b <- 1	
+
+	FOR a to length.rows
+		FOR b to length.columns
+			z <- int INPUT User inputs an integer
+			matrix [a,b] <- z
+	return matrix
+
+ADD-MATRIX(matrix1,matrix2)
+	length <- length.matrix1
+	matrix3 <- [length, length]
+	x <- 1
+	y <- 1
+	FOR x to length
+		FOR y to length
+			matrix3[x, y] <- matrix1[x, y]+ matrix2[x, y]	
+	return matrix3
+
+
+SUBTRACT-MATRIX(matrix1,matrix2)
+	length <- length.matrix1
+	matrix3 <- [length, length]
+	x <- 1
+	y <- 1
+	FOR x to length
+		FOR y to length
+			matrix3[x, y] <- matrix1[x, y] - matrix2[x, y]		
+	return matrix3
+
+
+MULTIPLY-MATRIX(matrix1,matrix2)
+	length <- length.matrix1
+	matrix3 <- [length, length]
+	x <- 1
+	y <- 1
+	FOR x to length
+		FOR y to length
+			matrix3[x, y] <- 
+	return matrix3
+
+
+Runtime = O(n^2)

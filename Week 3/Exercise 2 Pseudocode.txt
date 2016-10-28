@@ -1,0 +1,8 @@
+FINDPRIME(number, counter)
+	if counter > (number/2)
+		return True
+	if num % counter = 0
+		return False
+	else
+		counter++
+		return FINDPRIME(number, counter)

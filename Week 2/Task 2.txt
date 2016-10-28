@@ -1,0 +1,33 @@
+Week 2 Question 2. Look back at last week’s tasks. Describe the run-time bounds of these algorithms using the BigOnotation
+
+
+Big O notation of Week 1 tasks:
+
+import random									1
+
+def shuffle(l):									
+    m = []									1
+    while len(l) > 0:								n
+        r = random.randrange(0,len(l))						n
+        m.append(l.pop(r))							n
+    return m									1
+
+l = []										1
+s = int(input("Enter the length of the list you want to shuffle: "))		n
+while len(l) < s:								n
+    x = int(input("Enter a number: "))						n
+    l.append(x)									n
+print("Starting list: " + str(l))						1
+print("Shuffled list: " + str(shuffle(l)))					1
+										O(n)
+
+
+
+def countZeros (n):
+    if n >= 5:									n
+        return int(countZeros(n/5) + n/5)					n
+    else:
+        return 0								1
+inp = int(input("Enter an interger: "))						1
+print("Number of trailing zeros: " + str(countZeros(inp)))			1
+										O(n)

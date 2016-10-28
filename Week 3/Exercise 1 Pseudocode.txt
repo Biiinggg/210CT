@@ -1,0 +1,7 @@
+txt <- INPUT user inputs a string	1
+list [] <- txt.split			1
+list.reverse				1
+str <- ' '.append(list)			1
+print(str)				1
+
+					O(1)
