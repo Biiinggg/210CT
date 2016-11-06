@@ -1,0 +1,14 @@
+BINARY_SEARCH(list, low, high)
+	min <- 0					1
+	max <- lenght(lst) -1				1
+	middle <- min + max //2				1
+	while min <= max				n
+		middle <- (min + max) //2		n
+		if lst[middle] >= low and <= high	log n
+			return True			n
+		if lst[middle] >= low and >= high	log n
+			max <- middle -1		n
+		else					log n
+			min = middle +1			n
+	return False					1
+							O(log n)
