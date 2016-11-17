@@ -1,4 +1,3 @@
-
 def countZeros (n):
     if n >= 5:
         return int(countZeros(n/5) + n/5)

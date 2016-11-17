@@ -22,3 +22,10 @@ def subtractMatrix(m1,m2,l):
     print(m3)
     return m3
 
+def multiplyMatrix(m1,m2,l):
+    m3 = [[0 for x in range(l)] for y in range(l)]
+    for x in range(l):
+        for y in range(l):
+            m3[x][y] = m1[x][y] * m2[x][y]
+    print(m3)
+    return m3
