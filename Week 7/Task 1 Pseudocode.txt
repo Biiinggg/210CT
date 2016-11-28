@@ -1,0 +1,10 @@
+CLASS VERTEX
+	label <- 0
+	edges <- []
+	
+	ADDNODE()
+		RETURN VERTEX()
+	
+	ADDEDGES(edges)
+		edges.append(edges)
+
