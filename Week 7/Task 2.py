@@ -1,55 +1,107 @@
-class Node:
-    def __init__(self, n):
-        self.label = n
-        self.edges = list()
+class Stack:
+     def __init__(self):
+         self.items = []
 
-    def addEdges(self, v):
-        self.edges.append(v)
+     def isEmpty(self):
+         return self.items == []
 
+     def push(self, item):
+         self.items.append(item)
+
+     def pop(self):
+         return self.items.pop()
+
+     def peek(self):
+         return self.items[len(self.items)-1]
+
+     def size(self):
+         return len(self.items)
+
+class Queue:
+    def __init__(self):
+        self.items = []
+
+    def isEmpty(self):
+        return self.items == []
+
+    def enqueue(self, item):
+        self.items.insert(0,item)
+
+    def dequeue(self):
+        return self.items.pop()
+
+    def size(self):
+        return len(self.items)
+
+'''Generic Queue and Stack class to enable competion of task
+    https://interactivepython.org'''
+  
 class Graph:
-    graph = {} ##Create new dictioanry
+    def __init__(self):
+        self.graph = {} ##Create new dictioanry
 
-    def addNode(self, node):
-        self.graph[node.label] = node
+    def addNode(self, label):
+        self.graph[label] = []
 
-    def addEdge(self, u, v): ##Adding the edge to each nodes list of edges
-        self.graph[u].addEdges(v)
-        self.graph[v].addEdges(u)
-
+    def addEdge(self, n1, n2): ##Adding the edge to each nodes list of edges
+        self.graph[n1].append(n2)
+        self.graph[n2].append(n1)
 
     def printGraph(self): ##Looping through the graph to print all the keys
-        for key in sorted(list(self.graph.keys())):
-            print(key + str(self.graph[key].edges))
+        for key,value in self.graph.items():
+            print(key ,"|", value)
+    
+    def depth_first_search(self,v):
+        s = Stack()
+        visited = []
+        s.push(v)
+        while s.isEmpty() == False:
+            u = s.pop()
+            if u is not visited:
+                visited.append(u)
+                for edge in self.graph[u]:
+                    s.push(edge)
+            file = open("depth_first_search_output.txt","w")
+            file.write(str(visited))
+            file.close
+            return visited
 
-def depth_first_search(G,v):
-    s = ()
-    visited = []
-    s.push(v)
-    while(s!=None):
-        u=s.pop()
-        if u is not visited:
-            visited.append(u)
-            for all edges, e, from u, s.push(e.to)
+    def breadth_first_search(self,v):
+        q = Queue()
+        visited = []
+        q.enqueue(v)
+        while q.isEmpty() == False:
+            u = q.dequeue()
+            if u not in visited:
+                visited.append(u)
+            for edge in self.graph[u]:
+                q.enqueue(edge)
+            file = open("breadth_first_search_output.txt","w")
+            file.write(str(visited))
+            file.close
+            return visited
 
-def breadth_first_search(G,v):
-    q = ()
-    visited = []
-    q.enqueue(v)
-    while(q!=None):
-        u=q.dequeue()
-        if u is not in visited:
-            visited.append(u)
-        for all edges, e, from u:
-            q.enqueue(e.to)
-        return visited
+if __name__ == '__main__':
 
+    g = Graph()
 
-g = Graph()
+    g.addNode('A')
+    g.addNode('B')
+    g.addNode('C')
+    g.addNode('D')
+    g.addNode('E')
+    g.addNode('F')
+    g.addEdge('A','B')
+    g.addEdge('A','C')
+    g.addEdge('C','D')
+    g.addEdge('C','F')
+    g.addEdge('C','E')
+    g.addEdge('A','D')
+    g.addEdge('D','E')
+    g.addEdge('A','F')
 
-g.addNode(Node('A'))
-g.addNode(Node('B'))
-g.addNode(Node('C'))
-g.addEdge('A','B')
-g.addEdge('A','C')
+    g.printGraph()
 
-g.printGraph()
+    print(g.depth_first_search('D'))
+    print(g.breadth_first_search('A'))
+

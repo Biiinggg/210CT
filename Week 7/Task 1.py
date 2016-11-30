@@ -1,32 +1,36 @@
-class Node:
-    def __init__(self, n):
-        self.label = n
-        self.edges = list()
-
-    def addEdges(self, v):
-        self.edges.append(v)
-
 class Graph:
-    graph = {} ##Create new dictioanry
+    def __init__(self):
+        self.graph = {} ##Create new dictioanry
 
-    def addNode(self, node):
-        self.graph[node.label] = node
+    def addNode(self, label):
+        self.graph[label] = []
 
-    def addEdge(self, u, v): ##Adding the edge to each nodes list of edges
-        self.graph[u].addEdges(v)
-        self.graph[v].addEdges(u)
+    def addEdge(self, n1, n2): ##Adding the edge to each nodes list of edges
+        self.graph[n1].append(n2)
+        self.graph[n2].append(n1)
+
+    def printGraph(self): ##Looping through the graph to print all the keys
+        for key,value in self.graph.items():
+            print(key ,"|", value)
 
 
-    def print_graph(self): ##Looping through the graph to print all the keys
-        for key in sorted(list(self.graph.keys())):
-            print(key + str(self.graph[key].edges))
+if __name__ == '__main__':
 
-g = Graph()
+    g = Graph()
 
-g.addNode(Node('A'))
-g.addNode(Node('B'))
-g.addNode(Node('C'))
-g.addEdge('A','B')
-g.addEdge('A','C')
+    g.addNode('A')
+    g.addNode('B')
+    g.addNode('C')
+    g.addNode('D')
+    g.addNode('E')
+    g.addNode('F')
+    g.addEdge('A','B')
+    g.addEdge('A','C')
+    g.addEdge('C','D')
+    g.addEdge('C','F')
+    g.addEdge('C','E')
+    g.addEdge('A','D')
+    g.addEdge('D','E')
+    g.addEdge('A','F')
 
-g.print_graph()
+    g.printGraph()
