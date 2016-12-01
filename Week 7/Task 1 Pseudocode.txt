@@ -1,10 +1,15 @@
-CLASS VERTEX
-	label <- 0
-	edges <- []
+CLASS GRAPH:
+	graph <- {}
+
+	addNode(label)
+		graph[label] = []
+
+	addEdge(node1,node2)
+		graph[node1].append(node2)
+		graph[node2].append(node1)
 	
-	ADDNODE()
-		RETURN VERTEX()
-	
-	ADDEDGES(edges)
-		edges.append(edges)
+	printGraph()
+		for key, value in graph
+			print key, value
+
 

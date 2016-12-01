@@ -18,4 +18,4 @@ def binarySearch(lst, low, high):
         
 
 l = [1,3,6,7,11,15,17]
-print(binarySearch(l,11,13))
+print(binarySearch(l,12,14))

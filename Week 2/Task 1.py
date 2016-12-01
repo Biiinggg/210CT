@@ -10,3 +10,6 @@ def perfectSquare(n):
     x = x * x
     print("Highest perfect square: " + str(x))
     return x
+
+x = float(input("Enter a number: "))
+perfectSquare(x)
