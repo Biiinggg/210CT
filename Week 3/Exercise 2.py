@@ -1,7 +1,7 @@
 '''Write a recursive function (pseudocode and code) to check if a number n is prime (hint: check whether
 n is divisible by any number below n).'''
 
-def findPrime(num, count):
+def findPrime(num, count = 2):
     if count > (num/2): ##exits function if the count is more than half of the number
         print("Number is prime!")
         return True
@@ -14,4 +14,4 @@ def findPrime(num, count):
 
 
 x = int(input("Enter a number: "))
-findPrime(x,2)
+findPrime(x)
